@@ -1,6 +1,6 @@
 package singleresponsibilityprinciple
 
-import Utils.printSectionName
+import utils.printSectionName
 import kotlin.random.Random
 
 /**
