@@ -1,6 +1,5 @@
 package singleresponsibilityprinciple
 
-import utils.printSectionName
 import kotlin.random.Random
 
 /**
@@ -89,5 +88,9 @@ fun solutionExampleTwo(args: Array<String>, randomHours: List<Int>, randomOwnFoo
         println("Name: ${it.name} hours spent: ${it.hours}, total costs: ${it.costs}, paid by owner: ${it.toBePaidByOwner}")
 
     }
+}
+
+fun printSectionName(name: String) {
+    println("########## $name ##########")
 }
 
