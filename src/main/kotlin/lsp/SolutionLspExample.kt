@@ -1,4 +1,4 @@
-package liskovsubstitutionprinciple
+package lsp
 
 /**
  * Implement LSP.

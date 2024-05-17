@@ -1,4 +1,4 @@
-package openclosedprinciple
+package ocp
 
 import java.time.LocalDate
 

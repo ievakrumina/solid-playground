@@ -1,4 +1,4 @@
-package singleresponsibilityprinciple
+package srp
 
 /**
  * Dog class is used in doggy daycare application.

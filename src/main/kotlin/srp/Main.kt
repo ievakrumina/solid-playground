@@ -1,4 +1,4 @@
-package singleresponsibilityprinciple
+package srp
 
 import kotlin.random.Random
 

@@ -1,4 +1,4 @@
-package liskovsubstitutionprinciple
+package lsp
 
 /**
  * Def:   Substitution property: If for each object x of type S
