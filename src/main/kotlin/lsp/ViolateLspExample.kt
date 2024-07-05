@@ -8,14 +8,16 @@ package lsp
  */
 class ViolateCostReport(
     private val calculator: ViolateCalculator? = null,
-    private val daycareCalculator: ViolateDaycareCalculator? = null
+    private val daycareCalculator: ViolateDaycareCalculator? = null,
+    private val dogSize: ViolateDaycareCalculator.DogSize = ViolateDaycareCalculator.DogSize.SMALL
 ) {
+    private val  time = 10 // Hardcoded for simplicity
     fun print() {
-        if (daycareCalculator!= null) {
-            println("${daycareCalculator.typeName} cost: ${ViolateDaycareCalculator().getCosts()}")
+        if (daycareCalculator!= null )   {
+            println("${daycareCalculator.typeName}, cost: ${ViolateDaycareCalculator().getCosts(time, dogSize)}")
         }
         if (calculator != null) {
-            println("${calculator.typeName} cost: ${calculator.getCosts(10)}")
+            println("${calculator.typeName} cost: ${calculator.getCosts(time)}")
         }
     }
 }
@@ -46,5 +48,15 @@ class ViolateBoardAndTrainCalculator: ViolateCalculator {
 class ViolateDaycareCalculator {
 
     val typeName = ViolateCostType.DAYCARE
-    fun getCosts() = 200
+
+    enum class DogSize {
+        SMALL, MEDIUM, BIG
+    }
+
+    fun getCosts(time: Int, dogSize:DogSize) = 5 * time * getCoefficient(dogSize)
+    private fun getCoefficient(dogSize: DogSize) = when(dogSize) {
+        DogSize.SMALL -> 1
+        DogSize.MEDIUM -> 2
+        DogSize.BIG -> 3
+    }
 }
