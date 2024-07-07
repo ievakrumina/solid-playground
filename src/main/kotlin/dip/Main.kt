@@ -10,7 +10,7 @@ package dip
  *
  * Solve example:
  * class SolvePrintReport uses SolveReportService interface.
- * class SolveDailyReportImpl implements SolveReportService.
+ * class SolveDailyReport implements SolveReportService.
  * This way SolvePrintReport can be reused for other report as well, if they implement SolveReportService.
  */
 
