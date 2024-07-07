@@ -14,7 +14,8 @@ class ViolateCostReport(
     private val  time = 10 // Hardcoded for simplicity
     fun print() {
         if (daycareCalculator!= null )   {
-            println("${daycareCalculator.typeName}, cost: ${ViolateDaycareCalculator().getCosts(time, dogSize)}")
+            println("${daycareCalculator.typeName}, " +
+                    "cost: ${daycareCalculator.getCosts(time, dogSize)}")
         }
         if (calculator != null) {
             println("${calculator.typeName} cost: ${calculator.getCosts(time)}")
@@ -53,7 +54,8 @@ class ViolateDaycareCalculator {
         SMALL, MEDIUM, BIG
     }
 
-    fun getCosts(time: Int, dogSize:DogSize) = 5 * time * getCoefficient(dogSize)
+    fun getCosts(time: Int, dogSize:DogSize) =
+        5 * time* getCoefficient(dogSize)
     private fun getCoefficient(dogSize: DogSize) = when(dogSize) {
         DogSize.SMALL -> 1
         DogSize.MEDIUM -> 2

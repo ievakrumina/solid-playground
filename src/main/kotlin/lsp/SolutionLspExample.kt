@@ -39,8 +39,13 @@ class SolutionBoardAndTrainCalculator() : SolutionCalculator {
     override fun getCosts(time: Int) = 15 * time
 }
 
+enum class DogSize {
+    SMALL, MEDIUM, BIG
+}
+
+
 class SolutionDaycareCalculator(
-    private val dogSize: ViolateDaycareCalculator.DogSize = ViolateDaycareCalculator.DogSize.SMALL
+    private val dogSize: DogSize = DogSize.SMALL
 ) : SolutionCalculator {
 
     override val typeName: SolutionCostType
@@ -48,8 +53,8 @@ class SolutionDaycareCalculator(
     override fun getCosts(time: Int): Int = 5 * time * getCoefficient()
 
     private fun getCoefficient() = when(dogSize) {
-        ViolateDaycareCalculator.DogSize.SMALL -> 1
-        ViolateDaycareCalculator.DogSize.MEDIUM -> 2
-        ViolateDaycareCalculator.DogSize.BIG -> 3
+        DogSize.SMALL -> 1
+        DogSize.MEDIUM -> 2
+        DogSize.BIG -> 3
     }
 }
