@@ -18,13 +18,8 @@ data class CompactDailyModel(
     val cost: Int,
 )
 
-interface CompactReportView {
-    val report: CompactDailyReport
-    fun printReport()
-}
-
-class CompactReportViewImpl(override val report: CompactDailyReport) : CompactReportView {
-    override fun printReport() {
+class CompactReportView(private val report: CompactDailyReport){
+    fun printReport() {
         val date = LocalDate.ofEpochDay(report.today)
         printSectionName("Compact report of $date")
         report.mapDataToModel().forEach {

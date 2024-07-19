@@ -15,20 +15,16 @@ package ocp
  * FullDailyReport (FullReport.kt) implements DogDaycareDailyReport (Main.kt) and uses FullDailyModel (FullReport.kt)
  * CompactDailyReport (CompactReport.kt) implements DogDaycareDailyReport (Main.kt) and uses CompactDailyModel (CompactReport.kt)
  *
- * FullReportView (FullReport.kt)  uses FullDailyReport (FullReport.kt)
- * CompactReportView (CompactReport.kt)  uses CompactDailyReport (CompactReport.kt)
- *
- * FullReportImpl (FullReport.kt)  implements FullReportView (FullReport.kt)  is used in main method to print out the report
- * CompactReportImpl (CompactReport.kt) implements CompactReportView (CompactReport.kt) is used in main method to print out the report
- *
+ * FullReportView (FullReport.kt)  uses FullDailyReport and FullDailModel (FullReport.kt). It is used in main method to print out the report
+ * CompactReportView (CompactReport.kt)  uses CompactDailyReport and CompactDailyModel (CompactReport.kt). It is used in main method to print out the report*
  */
 fun main() {
 
     val reportGenerator = DogDaycareDailyReportGeneratorImpl()
-    val fullReportPrinter = FullReportViewImpl(FullDailyReport(reportGenerator))
+    val fullReportPrinter = FullReportView(FullDailyReport(reportGenerator))
     fullReportPrinter.printReport()
 
-    val compactReportPrinter = CompactReportViewImpl(CompactDailyReport(reportGenerator))
+    val compactReportPrinter = CompactReportView(CompactDailyReport(reportGenerator))
     compactReportPrinter.printReport()
 
 }

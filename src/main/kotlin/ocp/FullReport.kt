@@ -19,13 +19,8 @@ data class FullDailyModel(
     val comments: String,
 )
 
-interface FullReportView {
-    val report: FullDailyReport
-    fun printReport()
-}
-
-class FullReportViewImpl(override val report: FullDailyReport) : FullReportView {
-    override fun printReport() {
+class FullReportView(private val report: FullDailyReport) {
+    fun printReport() {
         val date = LocalDate.ofEpochDay(report.today)
         printSectionName("Full report of $date")
         report.mapDataToModel().forEach {
